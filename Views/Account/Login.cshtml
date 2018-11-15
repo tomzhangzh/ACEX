@@ -1,0 +1,86 @@
+﻿@using ACEX.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+
+<div class="layout-column layout-align-center-stretch" style="height:100%">
+    <div class="layout-row layout-align-start-stretch">
+        <div class="flex-60">
+            <div class="panel" style="border-radius: 20px;">
+                <div class="panel-body" style="padding: 20px;">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                        @Html.AntiForgeryToken()
+                        <div class="blue" style="font-size:36px;">Login</div>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="col-md-12">
+                            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                            <div>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                            <div>
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="">
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe)
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding:5px;"></div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-8">
+                                <input type="submit" value="Log in" class="btn btn-green col-md-12" />
+                            </div>
+                        </div>
+                        <p>
+                            @Html.ActionLink("Register as a new user", "Register")
+                        </p>
+                        @* Enable this once you have account confirmation enabled for password reset functionality
+                            <p>
+                                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                            </p>*@
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="flex layout-column layout-align-center-stretch" style="">
+
+            <div style="padding:20px;background-color: #3749679e;border-radius: 0px 20px 20px 0px;" class="flex-80 layout-column layout-align-center-stretch">
+                <div class="white ng-binding" style="font-size:36px;">Patented Ledger</div>
+                <div style="padding:5px;"></div>
+                <div class="white ng-binding" style="font-size:16px;">
+                    ACEx signup requires users to created a ledger backed profile that allows for the highest level of security. This security has been validated and certified by SAIC
+                </div>
+                <div class="white" style="font-size:16px;">
+                    Read more
+                    <img src="/Content/images/AceXLearnMoreGraphic.png" style="width:18px;">
+                </div>
+                <div class="flex"></div>
+                <div class="layout-row layout-align-end-stretch">
+                    <img src="~/Content/images/ACEXplatform-logo-black.png" style="height:48px;" />
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="col-md-4">
+            <section id="socialLoginForm">
+                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+        </div>*@
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

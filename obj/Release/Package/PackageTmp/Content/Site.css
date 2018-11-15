@@ -1,0 +1,126 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default 
+input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+.navbar-inverse {
+            background: -webkit-radial-gradient(left 50px, #374967, #9299A8);
+        }
+
+            .navbar-inverse .navbar-nav > li > a {
+                color: #fff;
+                transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
+            }
+
+                .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+                    color: #ffffff;
+                    background-color: #374967;
+                    -webkit-transform: translateX(-5px);
+                    -moz-transform: translateX(-5px);
+                    -ms-transform: translateX(-5px);
+                    -o-transform: translateX(-5px);
+                    transform: translateX(-5px);
+                    font-size: 13px;
+                }
+
+        body {
+            font-family: "Century Gothic","Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #333333;
+            background-color: #ffffff;
+        }
+
+        .white {
+            color: white;
+        }
+        .blue {
+            color:#374967;
+        }
+        #Right {
+            position: fixed;
+            
+            right: 0;
+            top: 50px;
+            /* the secondary navigation is covered by the main element */
+            z-index: 1000;
+            width: 500px;
+            margin-right: 81px;
+            background-color: rgb(214, 220, 229);
+            overflow-y: auto;
+            /*/* Force Hardware Acceleration in WebKit */
+            -webkit-transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            -webkit-transition-property: -webkit-transform;
+            -moz-transition-property: -moz-transform;
+            transition-property: transform;
+            -webkit-transition-duration: 1.4s;
+            -moz-transition-duration: 1.4s;
+            transition-duration: 1.4s;
+            /* this creates the subtle slide in animation of the navigation */
+            -webkit-transform: translateX(80px);
+            -moz-transform: translateX(80px);
+            -ms-transform: translateX(80px);
+            -o-transform: translateX(80px);
+            transform: translateX(80px);
+            */;
+        }
+
+        .panel-default > .panel-heading {
+            color: #fff;
+            transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
+            background: -webkit-radial-gradient(left 50px, #374967, #9299A8);
+        }
+        /* 设置select2选中项不显示 */
+.select2-results__option[aria-selected=true]{
+	display:none;
+}
+.select2-container{ width: 100% !important; }
+.form-horizontal .control-label {
+    text-align: right;
+    color: #374967;
+}
+.myTab>li a:hover,.myTab>li a:focus {
+    color: #374967;
+    text-decoration: underline;
+    font-size:24px;
+    font-weight:800;
+    
+}
+.myTab>li.active a {
+    color: #374967;
+    text-decoration: underline;
+    font-size:24px;
+    font-weight:800;
+    background-color:transparent;
+}
+
+.myTab>li a {
+    color: #9299A8;
+    text-decoration: none;
+    font-size:24px;
+}
+.btn-green {
+    background-color: #00CC4F !important;
+    border-color: #00CC4F;
+    color: #fff !important;
+}

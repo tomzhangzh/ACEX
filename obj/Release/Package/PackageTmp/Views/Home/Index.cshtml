@@ -1,0 +1,368 @@
+﻿@{
+    ViewBag.Title = "ACEX";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<style>
+    /* #marquee1 */
+    #marquee1 {
+        width: 100%;
+        height: 120px;
+        overflow: hidden;
+        padding: 5px;
+    }
+
+        #marquee1 ul li {
+            float: left;
+            width: 500px;
+            border-right: 1px solid #F2F2F2;
+            padding: 5px;
+            list-style-type: none;
+        }
+
+            #marquee1 ul li img {
+                display: block;
+            }
+
+    .coinname {
+        font-size: 16px;
+    }
+
+    .coinprice {
+        font-size: 16px;
+    }
+
+    div .cliptext {
+        color: transparent;
+        -webkit-background-clip: text !important;
+    }
+</style>
+<div class="layout-row layout-align-start-stretch" style="height:calc(100vh - 160px);background:-webkit-radial-gradient(left 50px, #374967, #9299A8);">
+    <div class="flex-5"></div>
+    <div class="flex-30 layout-column layout-align-center-stretch"  ng-cloak>
+        <div style="font-weight:600;" class="wow bounceInUp">
+            <div class="white" style="font-size:{{model.Content1.TitleFontSize}}px;">{{model.Content1.Title}}</div>
+            <div style="padding:5px;"></div>
+            <div class="white" style="font-size:{{model.Content1.ContentFontSize}}px;">{{model.Content1.Content}}</div>
+            <div class="white" style="font-size:{{model.Content1.ContentFontSize}}px;">
+                Learn more
+                <img src="~/Content/images/AceXLearnMoreGraphic.png" style="width:18px;" />
+            </div>
+            @*<div class="white" style="font-size:36px;">Financial Management</div>
+                <div class="white" style="font-size:16px;">A comprehensive financial system based on securing the crypto market in virtual assets</div>
+                <div class="white" style="font-size:16px;">
+                    Learn more
+                    <img src="~/Content/images/AceXLearnMoreGraphic.png" style="width:18px;" />
+                </div>*@
+        </div>
+
+    </div>
+    <div class="flex" style="position:relative;overflow:hidden">
+
+        @*<img src="~/Content/images/background1.png" style="position: absolute;right: 0px;height: 100%;" />*@
+
+        <img data-wow-delay="0.5s" data-wow-duration="1s" class="wow slideInRight" src="~/Content/images/Picture2.png" style="position: absolute;height: 120%;top: -10%;right: -7%; width: 110%;" />
+
+    </div>
+</div>
+
+<div id="marquee1">
+    <ul>
+        <li class="coinDiv" coin="BTC" ng-show="model.Content1.SelectedCurrencies.indexOf('BTC')>=0">
+            <div class="layout-row layout-align-center-stretch" style="height:100%">
+                <div class="flex-20" style="padding:10px">
+                    <img src="~/Content/images/BitcoinGraphic.png" style="width:100%;height:100%" />
+                </div>
+                <div class="flex-20 layout-column layout-align-center-start" style="padding:0px;color:#f7931a;font-weight:600">
+
+                    <div class="coinname">Bitcoin</div>
+                    <div class="coinprice"></div>
+
+                </div>
+                <div class="flex-30 chart" id="BTC_Chart" style="padding:5px;border-radius:10px;background-color:#d6dce5"></div>
+                <div class="flex layout-column layout-align-center-center" style="padding:5px;color:#f7931a;font-weight:600">
+
+                    <div id="BTC_Label" class="coinlabel"></div>
+                    <div style="color:#2dbdf2">26,410 Buy Orders</div>
+                    <div style="color:#fb3f69">16,314 Sell Orders</div>
+                </div>
+            </div>
+        </li>
+        <li class="coinDiv" coin="ETH" ng-show="model.Content1.SelectedCurrencies.indexOf('ETH')>=0">
+
+            <div class="flex-33 layout-row layout-align-center-stretch" style="height:100%">
+                <div class="flex-20" style="padding:10px">
+                    <img src="~/Content/images/LitecoinGraphic.png" style="width:100%;height:100%" />
+                </div>
+                <div class="flex-20 layout-column layout-align-center-start" style="padding:0px;color:#848d9e;font-weight:600">
+                    <div class="coinname">Litecoin</div>
+                    <div class="coinprice"></div>
+
+                </div>
+                <div class="flex-30 chart" id="LTC_Chart" style="padding:5px;border-radius:10px;background-color:#d6dce5"></div>
+                <div class="flex layout-column layout-align-center-center" style="padding:5px;color:#f7931a;font-weight:600">
+
+                    <div id="LTC_Label" class="coinlabel"></div>
+                    <div style="color:#2dbdf2">26,410 Buy Orders</div>
+                    <div style="color:#fb3f69">16,314 Sell Orders</div>
+                </div>
+            </div>
+        </li>
+        <li class="coinDiv" coin="LTC" ng-show="model.Content1.SelectedCurrencies.indexOf('LTC')>=0">
+            <div class="flex-33 layout-row layout-align-center-stretch" style="height:100%">
+                <div class="flex-20" style="padding:10px">
+                    <img src="~/Content/images/EtheriumGraphic.png" style="width:100%;height:100%" />
+                </div>
+                <div class="flex-20 layout-column layout-align-center-start" style="padding:0px;color:#141414;font-weight:600">
+                    <div class="coinname">Ethereum</div>
+                    <div class="coinprice"></div>
+
+
+                </div>
+                <div class="flex-30 chart" id="ETH_Chart" style="padding:5px;border-radius:10px;background-color:#d6dce5"></div>
+                <div class="flex layout-column layout-align-center-center" style="padding:5px;color:#f7931a;font-weight:600">
+
+                    <div id="ETH_Label" class="coinlabel"></div>
+                    <div style="color:#2dbdf2">26,410 Buy Orders</div>
+                    <div style="color:#fb3f69">16,314 Sell Orders</div>
+                </div>
+            </div>
+        </li>
+        <li class="coinDiv" coin="BCH" ng-show="model.Content1.SelectedCurrencies.indexOf('BCH')>=0">
+            <div class="flex-33 layout-row layout-align-center-stretch" style="height:100%">
+                <div class="flex-20" style="padding:10px">
+                    <img src="~/Content/images/BitCoinCashIcon.png" style="width:100%;height:100%" />
+                </div>
+                <div class="flex-20 layout-column layout-align-center-start" style="padding:0px;color:#3aeb5b;font-weight:600">
+                    <div class="coinname">BitcoinCash</div>
+                    <div class="coinprice"></div>
+
+                </div>
+                <div class="flex-30 chart" id="BCH_Chart" style="padding:5px;border-radius:10px;background-color:#d6dce5"></div>
+                <div class="flex layout-column layout-align-center-start" style="padding:5px;color:#f7931a;font-weight:600">
+
+                    <div id="BCH_Label" class="coinlabel"></div>
+                    <div style="color:#2dbdf2">26,410 Buy Orders</div>
+                    <div style="color:#fb3f69">16,314 Sell Orders</div>
+                </div>
+            </div>
+
+        </li>
+        <li class="coinDiv" coin="EOS" ng-show="model.Content1.SelectedCurrencies.indexOf('EOS')>=0">
+            <div class="layout-row layout-align-center-stretch" style="height:100%">
+                <div class="flex-20" style="padding:10px">
+                    <img src="~/Content/images/EOS Icon.png" style="width:100%;height:100%" />
+                </div>
+                <div class="flex-20 layout-column layout-align-center-start" style="padding:0px;color:#373737;font-weight:600">
+                    <div class="coinname">EOS</div>
+                    <div class="coinprice"></div>
+                </div>
+                <div class="flex-30 chart" id="EOS_Chart" style="padding:5px;border-radius:10px;background-color:#d6dce5"></div>
+                <div class="flex layout-column layout-align-center-center" style="padding:5px;color:#373737;font-weight:600">
+
+                    <div id="EOS_Label" class="coinlabel"></div>
+                    <div style="color:#2dbdf2">26,410 Buy Orders</div>
+                    <div style="color:#fb3f69">16,314 Sell Orders</div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    @*<div class="flex-33 layout-row layout-align-center-stretch" style="border-right:1px solid #808080">
+            <div class="flex-20" style="padding:10px">
+                <img src="~/Content/images/BitcoinGraphic.png" style="width:100%;height:100%" />
+            </div>
+            <div class="flex-20 layout-column layout-align-center-center" style="padding:5px;color:#f7931a;font-weight:600">
+
+                <div>Bitcoin</div>
+                <div id="BTC_Price"></div>
+
+            </div>
+            <div class="flex-30" id="BTC_Chart" style="padding:10px"></div>
+            <div class="flex layout-column layout-align-center-center" style="padding:5px;color:#f7931a;font-weight:600">
+
+                <div id="BTC_Label"></div>
+                <div style="color:#2dbdf2">26,410 Buy Orders</div>
+                <div style="color:#fb3f69">16,314 Sell Orders</div>
+            </div>
+        </div>
+
+
+    *@
+    @**@
+</div>
+
+
+<div class="layout-column layout-align-start-stretch" style="height:calc(100vh - 40px);" ng-cloak>
+    <div class="flex-40 layout-row layout-align-start-stretch" style="background-color:rgba(214,220,229,1)">
+        <div class="flex-40" style="position:relative;overflow:hidden">
+            <img src="~/Content/images/coinMarket.png" style="width:100%;height:100%" class="wow slideInLeft" />
+
+        </div>
+        <div class="flex-40 layout-column layout-align-center-stretch wow slideInRight" data-wow-duration="1s" style="font-weight:600;">
+            <div class="white" style="font-size:{{model.Content2.TitleFontSize}}px;">{{model.Content2.Title}}</div>
+            <div style="padding:5px;"></div>
+            <div class="white" style="font-size:{{model.Content2.ContentFontSize}}px;">{{model.Content2.Content}}</div>
+            <div style="padding:5px;"></div>
+            <div class="white layout-row layout-align-start-stretch" style="font-size:16px;">
+
+                <img src="~/Content/images/appStore.png" class="img-responsive" style="height:48px;" />
+                <div style="width:20px;"></div>
+                <img src="~/Content/images/googlePlay.png" class="img-responsive" style="height:48px;" />
+            </div>
+        </div>
+    </div>
+    <div class="flex layout-row layout-align-start-stretch">
+        <div class="flex-5"></div>
+        <div class="flex layout-column layout-align-center-stretch" style="position:relative">
+            <div class="cliptext" style="font-weight:600;color: #374967">
+                <div class="wow fadeInUp" data-wow-duration="1s" style="font-size:{{model.Content3.TitleFontSize}}px;">{{model.Content3.Title}}</div>
+                <div style="padding:5px;"></div>
+                <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" style="font-size:{{model.Content3.ContentFontSize}}px;">{{model.Content3.Content}}</div>
+                <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s"style="font-size:{{model.Content3.ContentFontSize}}px;">
+                    Learn more &nbsp;&nbsp;
+                    <svg class="icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;color:#374967" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5946"><path d="M512 0C229.216256 0 0 229.216256 0 512s229.216256 512 512 512 512-229.216256 512-512S794.783744 0 512 0z m0 928C282.24 928 96 741.76 96 512S282.24 96 512 96 928 282.24 928 512 741.76 928 512 928z m301.248512-461.248512l-256-256c-24.992768-24.991744-65.50528-24.991744-90.496 0s-24.992768 65.50528 0 90.496L613.504 448H256c-35.359744 0-64 28.640256-64 64s28.640256 64 64 64h357.504L466.751488 722.752512c-24.991744 24.991744-24.991744 65.503232 0 90.527744C479.265792 825.759744 495.616 832.03072 512 832.03072s32.768-6.239232 45.248512-18.751488l256-256c24.991744-24.992768 24.991744-65.504256 0-90.496z"></path></svg>
+                </div>
+            </div>
+
+        </div>
+        <div class="" style="position:relative;overflow:hidden;top:-50px;width:800px">
+            <img src="~/Content/images/1.png" style="position: absolute;
+    width: 542px;
+    z-index: 3;
+     right: 62px;
+    top: 66px;
+
+    height: 327px;" />
+            <img src="~/Content/images/laptop.png" style="position: absolute;
+    right: 0px;
+    width: 700px;
+    z-index: 2;" />
+
+
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/echarts.common.min.js"></script>
+    <script src="~/Scripts/linq-master/linq.min.js"></script>
+    <script src="~/Scripts/Marquee.js"></script>
+    <script>
+        var wow = new WOW({
+            boxClass: 'wow',
+            animateClass: 'animated',
+            offset: 100,
+            mobile: true,
+            live: true
+        });
+        wow.init();
+        // Extend the default Number object with a formatMoney() method:
+        // usage: someVar.formatMoney(decimalPlaces, symbol, thousandsSeparator, decimalSeparator)
+        // defaults: (2, "$", ",", ".")
+        Number.prototype.formatMoney = function (places, symbol, thousand, decimal) {
+            places = !isNaN(places = Math.abs(places)) ? places : 2;
+            symbol = symbol !== undefined ? symbol : "$";
+            thousand = thousand || ",";
+            decimal = decimal || ".";
+            var number = this,
+                negative = number < 0 ? "-" : "",
+                i = parseInt(number = Math.abs(+number || 0).toFixed(places), 10) + "",
+                j = (j = i.length) > 3 ? j % 3 : 0;
+            return symbol + negative + (j ? i.substr(0, j) + thousand : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousand) + (places ? decimal + Math.abs(number - i).toFixed(places).slice(2) : "");
+        };
+        function toPercent(first, last) {
+            var str = Number((last - first) * 100 / first).toFixed(2);
+            str += "%";
+            return str;
+        }
+        function setEchart(el, coin) {
+            var dom = $(el).find(".chart").get(0);
+            var label = $(el).find(".coinlabel");
+            var price = $(el).find(".coinprice");
+            var myChart = echarts.init(dom);
+            option = {
+                backgroundColor: "#d6dce5",
+                xAxis: {
+                    type: 'time',
+                    splitLine: {
+                        show: false
+                    },
+                    axisTick: { show: false },
+                    axisLine: { show: false },
+                    axisLabel: { show: false }
+                },
+                yAxis: {
+                    type: 'value',
+                    splitLine: {
+                        show: false
+                    },
+                    axisTick: { show: false },
+                    axisLine: { show: false },
+                    axisLabel: { show: false },
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    hoverAnimation: false
+                }]
+            };
+            myChart.setOption(option)
+            //debugger;
+            //setInterval(function () {
+
+            //    for (var i = 0; i < 5; i++) {
+            //        data.shift();
+            //        data.push(randomData());
+            //    }
+            //    debugger;
+            //    myChart.setOption({
+            //        series: [{
+            //            data: data
+            //        }]
+            //    });
+            //}, 1000);
+            $.getJSON("https://min-api.cryptocompare.com/data/histominute?fsym=" + coin + "&tsym=USD&limit=1399", function (data) {
+                var echartData = [];
+                //debugger;
+                data.Data.forEach(function (val, index) {
+                    echartData.push({ name: new Date(val.time * 1000).toString(), value: [val.time, val.close] });
+                });
+                var max = Enumerable.from(data.Data).select("$.close").max();
+                var min = Enumerable.from(data.Data).select("$.close").min();
+                var first = Enumerable.from(data.Data).select("$.close").first();
+                var last = Enumerable.from(data.Data).select("$.close").last();
+                label.text(toPercent(first, last));
+                var color = "#fb3f69"
+                if (last > first) {
+                    color = "#2dbdf2";
+                }
+                label.css("color", color);
+                price.text(last.formatMoney(2, "$", ",", "."));
+                myChart.setOption({
+                    yAxis: { max: max, min: min },
+                    series: [{
+                        data: echartData,
+                        lineStyle: { color: color }
+                    }]
+                });
+            });
+        }
+        $('#marquee1').kxbdSuperMarquee({
+            distance: 500,
+            time: 3,
+            direction: 'left'
+        });
+        $.each($(".coinDiv"), function () {
+            setEchart($(this), $(this).attr("coin"));
+        });
+        $(".select2").select2();
+        //setEchart($(".coin1"), "BTC")
+        //setEchart($(".coin2"), "ETH")
+        //setEchart($(".coin3"), "LTC")
+        //setEchart($(".coin4"), "BCH")
+        //setEchart($(".coin5"), "EOS")
+
+
+    </script>
+}
+<div id="Right" class="collapse">
+    @Html.Partial("EditPage")
+</div>
